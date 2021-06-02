@@ -1,0 +1,12 @@
+1. Controller -> BoardController = request mapping
+2. Service-> BoardService
+3. Dao -> BoardDAO
+4. Board (table 1:1매핑)
+5. XML -> freeboard_SQL.xml
+
+1-2-3-4-5 순차적으로 작동
+ex) freeboard_insertform을 통해서 매핑(저장 버튼을 통해) - insert
+ 폼태그 안에 있는 Param들이 커맨드객체를 통해 Board안에 삽입
+ Board는 DAO.insert()를 통해 삽입.
+ Board는 xml.(freeboard.insert)에 ParameterType="com.org.myapp.freeboard.Board"객체 선언
+ 
