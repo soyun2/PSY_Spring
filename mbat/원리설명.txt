@@ -8,5 +8,5 @@
 ex) freeboard_insertform을 통해서 매핑(저장 버튼을 통해) - insert
  폼태그 안에 있는 Param들이 커맨드객체를 통해 Board안에 삽입
  Board는 DAO.insert()를 통해 삽입.
- Board는 xml.(freeboard.insert)에 ParameterType="com.org.myapp.freeboard.Board"객체 선언
+ Board는 xml.(freeboard.insert)에 ParameterType="com.org.mbat.freeboard.Board"객체 선언
  

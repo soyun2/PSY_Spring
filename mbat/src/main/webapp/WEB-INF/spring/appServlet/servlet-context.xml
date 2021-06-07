@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans:beans
-	xmlns="http://www.springframework.org/schema/mvc"
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -40,12 +39,11 @@
 		<beans:property name="dataSource" ref="ds" />
 		<beans:property name="mapperLocations" value="classpath:/mapper/*_SQL.xml" />
 	</beans:bean>
-	
-	<beans:bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate"> 
-		<beans:constructor-arg index="0" ref="sqlSeesionFactory"/> 
+
+	<beans:bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg index="0" ref="sqlSeesionFactory" />
 	</beans:bean>
 	
-	<context:component-scan
-		base-package="com.org.myapp" />
+	<context:component-scan	base-package="com.org.mbat" />
 
 </beans:beans>

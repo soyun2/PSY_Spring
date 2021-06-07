@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.org.myapp">
+	<logger name="com.org.mbat">
 		<level value="info" />
 	</logger>
 	
