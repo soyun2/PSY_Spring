@@ -2,6 +2,9 @@ package com.org.mbat.aop;
 
 import java.util.Arrays;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
@@ -18,8 +21,26 @@ public class MbatAspect {
 	@Around("publicTarget()")
 	public Object doASC(ProceedingJoinPoint joinPoint) throws Throwable {
 		long start = System.nanoTime();
+		HttpServletRequest request = null;
+		HttpSession session = null;
 		try {
 			System.out.println("이전");
+			Object[] obs = joinPoint.getArgs();
+			for(Object o:obs) {
+				if(o instanceof HttpServletRequest)
+					request = (HttpServletRequest)o;
+			}
+			String a = request.getParameter("aaa");
+			System.out.println("a = "+a);
+			
+			if(request != null) {
+				session = request.getSession();
+				String pw = (String) session.getAttribute("id");
+				System.out.println("pw = "+pw);
+				if(pw == null)
+					return "redirect:/";
+			}
+			
 			Object result = joinPoint.proceed();
 			return result;
 		} finally {
