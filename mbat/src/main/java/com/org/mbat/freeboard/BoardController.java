@@ -1,7 +1,11 @@
 package com.org.mbat.freeboard;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,21 +31,23 @@ public class BoardController {
 	@Autowired
 	BoardService bs;
 	
+	@Autowired
+	SqlSessionTemplate sst;
+		
 	@RequestMapping(value = "/freeboard", method = RequestMethod.GET)
 	public String freeboard(Model model) {
 		System.out.println("게시판홈");
+		List list = sst.selectList("freeboard.select", 10);
+		System.out.println(list);
+		model.addAttribute("list",list);	
 //		bs.select();
+//		model.addAttribute("data","mydata");
+//		List strlist = Arrays.asList("a1","a2","a3","a4");
+//		List mylist = Arrays.asList(new Board(1,"title","pass","content","wdate","email",null,null), new Board(2,"tie","pa","cont","wde","mail",null,null));
+//		model.addAttribute("strlist",strlist);
+//		model.addAttribute("mylist",mylist);
 		return "/freeboard/freeboard";
 	}
-	
-//	@RequestMapping(value = "/freeboard/insert")
-//	public String freeboardinsert(Model model,HttpServletRequest request) {
-//		String name = request.getParameter("name");
-//		System.out.println("name ="+name);
-////		bs.select();
-////		bs.insert();
-//		return "freeboard/freeboard";
-//	}
 	
 	@RequestMapping(value = "/freeboard/insert")
 	public String freeboardinsert(Model model,@RequestParam String name,Board board) {

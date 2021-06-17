@@ -14,21 +14,24 @@
     <title>MH Admin Freeboard</title>
 
     <!-- Custom fonts for this template -->
-    <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="resources/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-
+<%-- 	${data}<br> --%>
+<%-- 	${strlist}<br> --%>
+<%-- 	${mylist}<br> --%>
+	
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -274,7 +277,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                                        <img class="rounded-circle" src="resources/img/undraw_profile_1.svg" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -285,7 +288,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+                                        <img class="rounded-circle" src="resources/img/undraw_profile_2.svg" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -296,7 +299,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                                        <img class="rounded-circle" src="resources/img/undraw_profile_3.svg" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -328,7 +331,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="resources/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -370,14 +373,9 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                        	<div style="float:left">
-                            	<h6 class="m-0 font-weight-bold text-primary">Freeboard</h6>
-                            </div>
-                            <div style="float:right">
-                            	<a class="m-0 font-weight-bold text-primary" href="/freeboard/insertform">글쓰기</a>
-                            </div>
+                            <h6 class="m-0 font-weight-bold text-primary">Freeboard</h6>
                         </div>
-                        <div class="card-body" style="clear: both">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -401,6 +399,16 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                    	<c:forEach items="${list}" var="index">
+                                    		<tr>
+                                    			<td>${index.idx}</td>
+                                    			<td>${index.title}</td>
+                                    			<td>${index.name}</td>
+                                    			<td>${index.email}</td>
+                                    			<td>${index.wdate}</td>
+                                    			<td>${index.see}</td>
+                                    		</tr>
+                                    	</c:forEach>
                                         <tr>
                                             <td>Tiger Nixon</td>
                                             <td>System Architect</td>
@@ -463,21 +471,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="resources/vendor/jquery/jquery.min.js"></script>
+    <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="resources/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="resources/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <script src="resources/js/demo/datatables-demo.js"></script>
 
 </body>
 
