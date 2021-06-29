@@ -12,6 +12,6 @@
 		NOW(),#{name},#{email});
 	</insert>
 	<select id="select" parameterType="java.lang.Integer" resultType="com.org.mbat.freeboard.Board">
-		SELECT * FROM FREEBOARD limit #{start}, 10;
+		SELECT * FROM FREEBOARD limit #{start}, 999;
 	</select>
 </mapper>

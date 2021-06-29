@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MH Admin Freeboard</title>
+    <title>SJ Admin Freeboard</title>
 
     <!-- Custom fonts for this template -->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -28,10 +28,7 @@
 </head>
 
 <body id="page-top">
-<%-- 	${data}<br> --%>
-<%-- 	${strlist}<br> --%>
-<%-- 	${mylist}<br> --%>
-	
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -43,7 +40,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">SJ Admin <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
@@ -366,18 +363,23 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Freeboard</h1>
-                    <p class="mb-4"> 자유 게시판...하고 싶은말 하세요... 
+                    <p class="mb-4"> 자유 게시판 
 <!--                         <a target="_blank" href="https://datatables.net">official DataTables documentation</a>. -->
                     </p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Freeboard</h6>
+                           <div style="float:left">
+                               <h6 class="m-0 font-weight-bold text-primary">Freeboard</h6>
+                            </div>
+                            <div style="float:right">
+                               <a class="m-0 font-weight-bold text-primary" href="/freeboard/insertform">글쓰기</a>
+                            </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" style="clear: both">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="freeboardTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -388,35 +390,17 @@
                                             <th>조회</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>제목</th>
-                                            <th>작성자</th>
-                                            <th>이메일</th>
-                                            <th>날짜</th>
-                                            <th>조회</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
-                                    	<c:forEach items="${list}" var="index">
-                                    		<tr>
-                                    			<td>${index.idx}</td>
-                                    			<td>${index.title}</td>
-                                    			<td>${index.name}</td>
-                                    			<td>${index.email}</td>
-                                    			<td>${index.wdate}</td>
-                                    			<td>${index.see}</td>
-                                    		</tr>
-                                    	</c:forEach>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
+                                       	<c:forEach items="${list}" var="index">
+                                       		<tr>
+                                                <td>${index.idx}</td>
+                                                <td>${index.title}</td>
+                                                <td>${index.name}</td>
+                                                <td>${index.email}</td>
+                                                <td>${index.wdate}</td>
+                                                <td>${index.see}</td>
+                                             </tr>
+                                       	</c:forEach>                                      
                                     </tbody>
                                 </table>
                             </div>
@@ -458,7 +442,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">Ã</span>
+                        <span aria-hidden="true">Ã </span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
